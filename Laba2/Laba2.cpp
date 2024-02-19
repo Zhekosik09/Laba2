@@ -9,7 +9,7 @@ private:
     string title;
     string author;
     bool available;
-public:fffff
+public:
     Book(string t, string a) : title(t), author(a), available(true) {}
     Book() : Book("", "") {}
     ~Book() {}
