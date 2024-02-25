@@ -2,6 +2,7 @@
 #define BOOK_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -9,24 +10,26 @@ class Book {
 private:
     string title;
     string author;
-    int yearPublished;
+    int bookId;
+    static int NextBookId;
+    vector<LibraryUser> readers;
 
 public:
-    Book() : title(""), author(""), yearPublished(0) {}
-    Book(string title, string author, int yearPublished) : title(title), author(author), yearPublished(yearPublished) {}
-    ~Book() {
-        cout << "Book destroyed:" << title << "\n" << endl;
+    Book(string title, string author) : title(title), author(author), bookId(NextBookId++) {}
+
+    void addReader(const LibraryUser& user) {
+        readers.push_back(user);
     }
 
-    string getTitle() const {
-        return title;
-    }
-    string getAuthor() const {
-        return author;
-    }
-    int getYearPublished() const {
-        return yearPublished;
+    void display() {
+        cout << "Title: " << title << ", Author: " << author << ", Book ID: " << bookId << endl;
+        cout << "Readers:" << endl;
+        for (const auto& reader : readers) {
+            cout << "  " << reader.getName() << " (ID: " << reader.getUserId() << ")" << endl;
+        }
     }
 };
+
+int Book::NextBookId = 0;
 
 #endif

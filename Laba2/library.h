@@ -13,9 +13,6 @@ private:
 
 public:
     Library() {}
-    ~Library() {
-        cout << "Library destroyed\n" << endl;
-    }
 
     void addBook(const Book& book) {
         books.push_back(book);
@@ -23,6 +20,8 @@ public:
     void addUser(const LibraryUser& user) {
         users.push_back(user);
     }
+
+    ~Library() {}
 };
 
 #endif LIBRARY_H

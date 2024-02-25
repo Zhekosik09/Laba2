@@ -8,16 +8,23 @@ using namespace std;
 class LibraryUser {
 private:
     string name;
+    int userId;
+    static int NextUserId;
 
 public:
-    LibraryUser(string name) : name(name) {}
-    ~LibraryUser() {
-        cout << "Library user destroyed: \t" << name << "\n" << endl;
-    }
+    LibraryUser(string name) : name(name), userId(NextUserId++) {}
 
     string getName() const {
         return name;
     }
+
+    int getUserId() const {
+        return userId;
+    }
+
+    ~LibraryUser() {}
 };
+
+int LibraryUser::NextUserId = 1;
 
 #endif LIBRARYUSER_H
