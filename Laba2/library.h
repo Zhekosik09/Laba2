@@ -21,7 +21,9 @@ public:
         users.push_back(user);
     }
 
-    ~Library() {}
+    ~Library() {
+        cout << "Library destroyed\n" << endl;
+    }
 };
 
 #endif LIBRARY_H

@@ -22,7 +22,9 @@ public:
         return userId;
     }
 
-    ~LibraryUser() {}
+    ~LibraryUser() {
+        cout << "LibraryUser destroyed\n" << endl;
+    }
 };
 
 int LibraryUser::NextUserId = 1;

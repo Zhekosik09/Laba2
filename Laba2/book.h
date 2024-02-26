@@ -28,6 +28,9 @@ public:
             cout << "  " << reader.getName() << " (ID: " << reader.getUserId() << ")" << endl;
         }
     }
+    ~Book() {
+        cout << "Book destroyed\n" << endl;
+    }
 };
 
 int Book::NextBookId = 0;
